@@ -1,31 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	var myString string
+	myString = "Green"
 
-	var whatToSay string
-	var i int
+	log.Println("myString=", myString)
 
-	whatToSay = "Enjoy Learning Go"
-	fmt.Println(whatToSay)
-
-	i = 10
-	fmt.Println(i)
-
-	// := makes the variable dynamic type which detects its datatype on the fly.
-	whatWasSaid := saySomehing()
-	fmt.Println(whatWasSaid)
-
-	returnMany1, returnMany2 := returnManyThingsFromSameFunction()
-	fmt.Println(returnMany1, returnMany2)
+	changeUsingPointers(&myString)
+	log.Println("after func call myString=", myString)
 }
 
-func saySomehing() string {
-	return "something"
-}
-
-func returnManyThingsFromSameFunction() (string, string) {
-	return "return 1st object\n", "return 2nd object"
+func changeUsingPointers(s *string) {
+	log.Println("string s=", s)
+	newValue := "Red"
+	*s = newValue
 }
