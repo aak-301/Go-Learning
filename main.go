@@ -13,4 +13,12 @@ func main() {
 
 	i = 10
 	fmt.Println(i)
+
+	// := makes the variable dynamic type which detects its datatype on the fly.
+	whatWasSaid := saySomehing()
+	fmt.Println(whatWasSaid)
+}
+
+func saySomehing() string {
+	return "something"
 }
