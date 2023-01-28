@@ -17,8 +17,15 @@ func main() {
 	// := makes the variable dynamic type which detects its datatype on the fly.
 	whatWasSaid := saySomehing()
 	fmt.Println(whatWasSaid)
+
+	returnMany1, returnMany2 := returnManyThingsFromSameFunction()
+	fmt.Println(returnMany1, returnMany2)
 }
 
 func saySomehing() string {
 	return "something"
+}
+
+func returnManyThingsFromSameFunction() (string, string) {
+	return "return 1st object\n", "return 2nd object"
 }
