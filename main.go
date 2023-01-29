@@ -1,31 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/aak-301/myniceprogram/helpers"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	log.Println("Hello")
 
-	var whatToSay string
-	var i int
-
-	whatToSay = "Enjoy Learning Go"
-	fmt.Println(whatToSay)
-
-	i = 10
-	fmt.Println(i)
-
-	// := makes the variable dynamic type which detects its datatype on the fly.
-	whatWasSaid := saySomehing()
-	fmt.Println(whatWasSaid)
-
-	returnMany1, returnMany2 := returnManyThingsFromSameFunction()
-	fmt.Println(returnMany1, returnMany2)
-}
-
-func saySomehing() string {
-	return "something"
-}
-
-func returnManyThingsFromSameFunction() (string, string) {
-	return "return 1st object\n", "return 2nd object"
+	var myVar helpers.SomeData
+	myVar.TypeName = "Some name"
+	log.Println(myVar.TypeName)
 }
