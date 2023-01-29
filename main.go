@@ -1,31 +1,38 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
+
+// Maps are immutable
+type User struct {
+	FirstAme string
+	LastName string
+}
 
 func main() {
-	fmt.Println("Hello World")
 
-	var whatToSay string
-	var i int
+	myMap := make(map[string]string)
+	myMap["dog"] = "Maggi"
+	myMap["cat"] = "Julie"
+	myMap["dog"] = "Juno"
+	log.Println(myMap["dog"])
+	log.Println(myMap["cat"])
 
-	whatToSay = "Enjoy Learning Go"
-	fmt.Println(whatToSay)
+	myMap2 := make(map[string]int)
+	myMap2["bihar"] = 1
+	myMap2["UP"] = 2
 
-	i = 10
-	fmt.Println(i)
+	log.Println(myMap2["bihar"])
+	log.Println(myMap2["UP"])
 
-	// := makes the variable dynamic type which detects its datatype on the fly.
-	whatWasSaid := saySomehing()
-	fmt.Println(whatWasSaid)
+	userMap := make(map[string]User)
+	userData := User{
+		FirstAme: "Aman",
+		LastName: "Singh",
+	}
 
-	returnMany1, returnMany2 := returnManyThingsFromSameFunction()
-	fmt.Println(returnMany1, returnMany2)
-}
+	userMap["first"] = userData
+	log.Println(userMap["first"].FirstAme, userMap["first"].LastName)
 
-func saySomehing() string {
-	return "something"
-}
-
-func returnManyThingsFromSameFunction() (string, string) {
-	return "return 1st object\n", "return 2nd object"
 }
