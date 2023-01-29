@@ -1,31 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"time"
+)
+
+// In Go whe we declare a variable,function,etc with capital letters
+// then it can be accessed in different packages as well
+
+type User struct {
+	FirstName  string
+	LastName   string
+	PoneNumber string
+	Age        int
+	BirthDate  time.Time
+}
 
 func main() {
-	fmt.Println("Hello World")
+	user := User{
+		FirstName:  "Aakash",
+		LastName:   "Shivanshu",
+		PoneNumber: "+91-1234567890",
+	}
 
-	var whatToSay string
-	var i int
-
-	whatToSay = "Enjoy Learning Go"
-	fmt.Println(whatToSay)
-
-	i = 10
-	fmt.Println(i)
-
-	// := makes the variable dynamic type which detects its datatype on the fly.
-	whatWasSaid := saySomehing()
-	fmt.Println(whatWasSaid)
-
-	returnMany1, returnMany2 := returnManyThingsFromSameFunction()
-	fmt.Println(returnMany1, returnMany2)
-}
-
-func saySomehing() string {
-	return "something"
-}
-
-func returnManyThingsFromSameFunction() (string, string) {
-	return "return 1st object\n", "return 2nd object"
+	log.Println(user.FirstName)
 }
