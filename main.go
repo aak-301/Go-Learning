@@ -1,31 +1,52 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	var isTrue bool
+	isTrue = false
 
-	var whatToSay string
-	var i int
+	if isTrue {
+		log.Println("isTrue=", isTrue)
+	} else {
+		log.Println("isTrue=", isTrue)
+	}
 
-	whatToSay = "Enjoy Learning Go"
-	fmt.Println(whatToSay)
+	cat := "cat"
 
-	i = 10
-	fmt.Println(i)
+	if cat == "cat" {
+		log.Println("Catis cat")
+	} else {
+		log.Println("Cat is not cat")
+	}
 
-	// := makes the variable dynamic type which detects its datatype on the fly.
-	whatWasSaid := saySomehing()
-	fmt.Println(whatWasSaid)
+	myNum := 50
+	isTrue2 := false
 
-	returnMany1, returnMany2 := returnManyThingsFromSameFunction()
-	fmt.Println(returnMany1, returnMany2)
-}
+	if myNum > 99 && isTrue2 {
+		log.Println("myNum>99 && isTure2 == ", isTrue2)
+	} else if myNum > 99 && !isTrue2 {
+		log.Println("myNum>99 && isTure2 == ", isTrue2)
+	} else if myNum < 100 && isTrue2 {
+		log.Println("myNum<100 && isTure2 == ", isTrue2)
+	} else if myNum < 100 && !isTrue2 {
+		log.Println("myNum<100 && isTure2 == ", isTrue2)
+	}
 
-func saySomehing() string {
-	return "something"
-}
+	// switch
 
-func returnManyThingsFromSameFunction() (string, string) {
-	return "return 1st object\n", "return 2nd object"
+	myVar := "fisgh"
+	switch myVar {
+	case "dog":
+		log.Println("This is dog")
+	case "cat":
+		log.Println("This is cat")
+	case "fish":
+		log.Println("This is fish")
+	default:
+		log.Println("not found ")
+	}
+
 }
