@@ -1,31 +1,47 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	for i := 0; i < 10; i++ {
+		log.Println("i =", i)
+	}
 
-	var whatToSay string
-	var i int
+	animals := []string{"dog", "fish", "cat"}
+	for i, animal := range animals {
+		log.Println(i, animal)
+	}
 
-	whatToSay = "Enjoy Learning Go"
-	fmt.Println(whatToSay)
+	for _, animal := range animals {
+		log.Println(animal)
+	}
 
-	i = 10
-	fmt.Println(i)
+	animals2 := make(map[string]string)
+	animals2["dog"] = "fido"
+	animals2["cat"] = "fluffy"
+	for animalType, anianimal := range animals2 {
+		log.Println(animalType, anianimal)
+	}
 
-	// := makes the variable dynamic type which detects its datatype on the fly.
-	whatWasSaid := saySomehing()
-	fmt.Println(whatWasSaid)
+	var line = "Hey there. njoy learning GOLang"
+	for i, l := range line {
+		log.Println(i, l)
+	}
 
-	returnMany1, returnMany2 := returnManyThingsFromSameFunction()
-	fmt.Println(returnMany1, returnMany2)
-}
+	type User struct {
+		FirstName string
+		LstName   string
+		Email     string
+		Age       int
+	}
 
-func saySomehing() string {
-	return "something"
-}
-
-func returnManyThingsFromSameFunction() (string, string) {
-	return "return 1st object\n", "return 2nd object"
+	var user []User
+	user = append(user, User{"Aman", "Singh", "Aman@mailinaor.com", 20})
+	user = append(user, User{"Adarsh", "Singh", "Adarsh@mailinaor.com", 30})
+	user = append(user, User{"Shish", "Kumar", "Ashish@mailinaor.com", 10})
+	for _, u := range user {
+		log.Println(u)
+	}
 }
