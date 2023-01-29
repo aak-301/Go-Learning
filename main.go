@@ -2,30 +2,52 @@ package main
 
 import "fmt"
 
+type Animal interface {
+	Says() string
+	NumberofLegs() int
+}
+
+type Dog struct {
+	Name  string
+	Breed string
+}
+
+type Gorila struct {
+	Name          string
+	Color         string
+	NumberofTeeth int
+}
+
 func main() {
-	fmt.Println("Hello World")
+	dog := Dog{
+		Name:  "Samson",
+		Breed: "German Shephered",
+	}
 
-	var whatToSay string
-	var i int
+	gorilla := Gorila{
+		Name:          "Gorilla",
+		Color:         "Black",
+		NumberofTeeth: 30,
+	}
 
-	whatToSay = "Enjoy Learning Go"
-	fmt.Println(whatToSay)
-
-	i = 10
-	fmt.Println(i)
-
-	// := makes the variable dynamic type which detects its datatype on the fly.
-	whatWasSaid := saySomehing()
-	fmt.Println(whatWasSaid)
-
-	returnMany1, returnMany2 := returnManyThingsFromSameFunction()
-	fmt.Println(returnMany1, returnMany2)
+	PrintInfo(&dog)
+	PrintInfo(&gorilla)
 }
 
-func saySomehing() string {
-	return "something"
+func PrintInfo(a Animal) {
+	fmt.Println("This animal say", a.Says(), "and has", a.NumberofLegs(), "legs")
 }
 
-func returnManyThingsFromSameFunction() (string, string) {
-	return "return 1st object\n", "return 2nd object"
+func (d *Dog) Says() string {
+	return "Woof"
+}
+func (d *Dog) NumberofLegs() int {
+	return 4
+}
+
+func (d *Gorila) Says() string {
+	return "Uggh"
+}
+func (d *Gorila) NumberofLegs() int {
+	return 2
 }
